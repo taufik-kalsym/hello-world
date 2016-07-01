@@ -2645,6 +2645,7 @@
 			}
 
 			$this->fields = $this->_array[$pos];
+			echo "new modification here";
 			return true;
 		}
 
