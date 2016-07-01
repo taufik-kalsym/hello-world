@@ -2014,7 +2014,7 @@
 	function MoveFirst()
 	{
 		if ($this->_currentRow == 0) return true;
-		echo "New modification";
+		echo "New modification on branch v1.1";
 		return $this->Move(0);
 	}
 
