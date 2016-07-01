@@ -2,9 +2,7 @@
 
 /**
  * @version V2.40 4 Sept 2002 (c) 2000-2002 John Lim (jlim@natsoft.com.my). All rights reserved.
- * Released under both BSD license and Lesser GPL library license.
- * Whenever there is any discrepancy between the two licenses,
- * the BSD license will take precedence.
+ * comment been deleted
  *
  * Set tabs to 4 for best viewing.
  *
@@ -59,7 +57,6 @@
 		$ADODB_Database, 	// last database driver used
 		$ADODB_COUNTRECS,	// count number of records returned - slows down query
 		$ADODB_CACHE_DIR,	// directory to cache recordsets
-	 	$ADODB_FETCH_MODE;	// DEFAULT, NUM, ASSOC or BOTH. Default follows native driver default...
 
 	//==============================================================================================
 	// GLOBAL SETUP
@@ -111,6 +108,10 @@
 		var $name = '';
 		var $max_length=0;
 		var $type="";
+
+
+		var $new var=0;
+		var $new var1=0;
 
 		// additional fields by dannym... (danny_milo@yahoo.com)
 		var $not_null = false;
@@ -215,37 +216,6 @@
 
 		if (isset($HTTP_SERVER_VARS['HTTP_USER_AGENT'])) echo $msg;
 		else echo strip_tags($msg);
-	}
-
-	/**
-	 * Connect to database
-	 *
-	 * @param [argHostname]		Host to connect to
-	 * @param [argUsername]		Userid to login
-	 * @param [argPassword]		Associated password
-	 * @param [argDatabaseName]	database
-	 *
-	 * @return true or false
-	 */
-	function Connect($argHostname = "", $argUsername = "", $argPassword = "", $argDatabaseName = "")
-	{
-		if ($argHostname != "") $this->host = $argHostname;
-		if ($argUsername != "") $this->user = $argUsername;
-		if ($argPassword != "") $this->password = $argPassword; // not stored for security reasons
-		if ($argDatabaseName != "") $this->database = $argDatabaseName;
-
-		$this->_isPersistentConnection = false;
-		if ($fn = $this->raiseErrorFn) {
-			if ($this->_connect($this->host, $this->user, $this->password, $this->database)) return true;
-			$err = $this->ErrorMsg();
-			if (empty($err)) $err = "Connection error to server '$argHostname' with user '$argUsername'";
-			$fn($this->databaseType,'CONNECT',$this->ErrorNo(),$err,$this->host,$this->database);
-		} else
-			if ($this->_connect($this->host, $this->user, $this->password, $this->database)) return true;
-
-		if ($this->debug) ADOConnection::outp( $this->host.': '.$this->ErrorMsg());
-
-		return false;
 	}
 
 	/**
