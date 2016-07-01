@@ -2014,6 +2014,7 @@
 	function MoveFirst()
 	{
 		if ($this->_currentRow == 0) return true;
+		echo "New modification";
 		return $this->Move(0);
 	}
 
