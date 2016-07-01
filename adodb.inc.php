@@ -15,6 +15,7 @@
  * Database specific drivers are stored in the adodb-*.inc.php files.
  *
  * Requires PHP4.01pl2 or later because it uses include_once
+ * new commment for v1.1
 */
 
  if (!defined('_ADODB_LAYER')) {
@@ -2736,6 +2737,7 @@
 		if ($errorfn) {
 			$obj->raiseErrorFn = $errorfn;
 		}
+		//new comment for v1.1
 		return $obj;
 	}
 
